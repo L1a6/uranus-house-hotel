@@ -1,0 +1,366 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@200;300;400;500;600&display=swap");
+@import "aos/dist/aos.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cormorant: "Cormorant Garamond", serif;
+  --font-jost: "Jost", sans-serif;
+  --primary: #0c1d35;
+  --secondary: #c9a050;
+  --cream: #faf7f2;
+  --cream-100: #f0ebe1;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-jost);
+  background-color: var(--cream);
+  color: var(--primary);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-cormorant);
+  font-style: normal;
+}
+
+/* Gold text gradient */
+.text-gold {
+  color: var(--secondary);
+}
+
+.text-primary-gradient {
+  background: linear-gradient(
+    135deg,
+    #0c1d35 0%,
+    #1a3260 50%,
+    #0c1d35 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Horizontal divider */
+.divider-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 160, 80, 0.4),
+    rgba(201, 160, 80, 0.7),
+    rgba(201, 160, 80, 0.4),
+    transparent
+  );
+}
+
+/* Nav */
+.navbar {
+  transition: all 0.4s ease;
+}
+
+.is-sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: #faf7f2;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.is-sticky .nav-link {
+  color: #0c1d35 !important;
+}
+
+.is-sticky .nav-logo {
+  color: #0c1d35 !important;
+}
+
+.is-sticky .nav-phone {
+  color: #0c1d35 !important;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--secondary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: var(--secondary) !important;
+}
+
+/* Mobile nav animation */
+.scale-up-ver-top {
+  animation: scale-up-ver-top 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@keyframes scale-up-ver-top {
+  0% {
+    transform: scaleY(0.4);
+    transform-origin: 100% 0;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: 100% 0;
+  }
+}
+
+/* Spinning label animation */
+.label {
+  animation: label_anim linear 3s infinite alternate;
+}
+
+@keyframes label_anim {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.15);
+  }
+}
+
+/* Slow rotation */
+.animi-spin {
+  animation: animi_spin linear 40s infinite;
+}
+
+@keyframes animi_spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Float animation */
+.animate-float {
+  animation: float_anim linear 2s infinite alternate;
+}
+
+@keyframes float_anim {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-18px);
+  }
+}
+
+/* Reveal on scroll */
+[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-aos="fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Color-blocked flat containers (no shadow) */
+.flat-block {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: none;
+  border: none;
+}
+
+/* Section headings */
+.section-eyebrow {
+  font-family: var(--font-jost);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-weight: 500;
+}
+
+/* Elegant underline decoration */
+.gold-line {
+  display: block;
+  width: 3rem;
+  height: 1px;
+  background: var(--secondary);
+  margin-top: 0.75rem;
+}
+
+/* Book button */
+.btn-book {
+  display: inline-block;
+  padding: 0.875rem 2.5rem;
+  background: var(--secondary);
+  color: var(--primary);
+  font-family: var(--font-jost);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: 1px solid var(--secondary);
+}
+
+.btn-book:hover {
+  background: transparent;
+  color: var(--secondary);
+}
+
+.btn-outline-gold {
+  display: inline-block;
+  padding: 0.875rem 2.5rem;
+  background: transparent;
+  color: #faf7f2;
+  font-family: var(--font-jost);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(250, 247, 242, 0.5);
+}
+
+.btn-outline-gold:hover {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  animation: float_anim linear 2s infinite alternate;
+}
+
+/* Image rounded edges */
+.img-rounded {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Gallery hover */
+.gallery-item {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.gallery-item img {
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Room number style like bank hotel */
+.room-number {
+  font-family: var(--font-cormorant);
+  font-size: clamp(3rem, 8vw, 7rem);
+  color: var(--primary);
+  opacity: 0.12;
+  line-height: 1;
+  font-weight: 300;
+  position: absolute;
+  top: -1rem;
+  right: 1rem;
+}
+
+/* Testimonial quote mark */
+.quote-mark {
+  font-family: var(--font-cormorant);
+  font-size: 8rem;
+  line-height: 0.5;
+  color: var(--secondary);
+  opacity: 0.25;
+  font-style: italic;
+}
+
+/* Contact form input */
+.form-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(12, 29, 53, 0.25);
+  padding: 0.75rem 0;
+  font-family: var(--font-jost);
+  font-size: 0.9rem;
+  color: var(--primary);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-input::placeholder {
+  color: rgba(12, 29, 53, 0.4);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+.form-input:focus {
+  border-color: var(--secondary);
+}
+
+.form-label {
+  font-family: var(--font-jost);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(12, 29, 53, 0.5);
+  font-weight: 500;
+}
+
+/* Stats */
+.stat-number {
+  font-family: var(--font-cormorant);
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--secondary);
+}
+
+@media (max-width: 374px) {
+  .hero-heading {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1900px) {
+  .hero-heading {
+    font-size: 13rem;
+  }
+}
